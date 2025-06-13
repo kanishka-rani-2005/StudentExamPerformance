@@ -2,7 +2,7 @@ from setuptools import find_packages,setup
 from typing import List
 
 
-# // creating funciton so taht setup will take libraries
+# // creating function so that setup will take libraries
 # from requirements .txt and install them 
 def get_requirements(file_path:str)->List[str]:
     """Returns a list of requirements from a requirements.txt file."""

@@ -11,7 +11,7 @@ import os
 
 from src.logger import logging
 from src.exception import CustomException
-import pickle
+# import pickle
 
 from src.utils import save_object
 
@@ -37,13 +37,8 @@ class DataTransformation:
         try:
             
             num_cols=['writing_score','reading_score']
-            cat_cols=[
-                'gender',
-                'race_ethnicity',
-                'parental_level_of_education',
-                'lunch',
-                'test_preparation_course'
-            ]
+            cat_cols=['gender','race_ethnicity','parental_level_of_education','lunch','test_preparation_course']
+
             num_pipeline=Pipeline(
                 steps=[
                     ('imputer',SimpleImputer(strategy='median')),
@@ -114,9 +109,9 @@ class DataTransformation:
                 input_feature_test_arr,np.array(target_feature_test_df)
             ]
 
-            logging.info(f"Saved Preprocessing object.")
+            logging.info(f"Saving Preprocessing object.")
 
-# in utils write save_object function
+            # in utils write save_object function
             save_object(
                 file_path=self.data_transformation_config.preprocessor_obj_file_path,
                 obj=preprocessor_obj

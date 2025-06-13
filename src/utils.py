@@ -55,3 +55,14 @@ def evaluate_model(xtrain,ytrain,xtest,ytest,models,params,cv=3,n_jobs=3,verbose
     except Exception as e:
         ce=CustomException(e,sys)
         logging.error(ce)
+
+
+
+def load_object(file_path):
+    try:
+        with open (file_path,'rb') as f:
+            return dill.load(f)
+    except Exception as e:
+        return CustomException(e,sys)
+    
+    

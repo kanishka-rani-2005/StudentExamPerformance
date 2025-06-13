@@ -55,10 +55,79 @@ class ModelTrainer:
                 'GradientBoostRegressor':GradientBoostingRegressor()
             }
 
+
+            param_grid = {
+                'LinearRegression': {},
+                
+                'Lasso': {
+                    'alpha': [0.01, 0.1, 1, 10, 100],
+                    'max_iter': [1000, 5000, 10000]
+                },
+
+                'Ridge': {
+                    'alpha': [0.01, 0.1, 1, 10, 100],
+                    'solver': ['auto', 'svd', 'cholesky', 'sparse_cg', 'sag']
+                },
+
+                'KNeighborsRegressor': {
+                    'n_neighbors': [3, 5, 7, 9],
+                    'weights': ['uniform', 'distance'],
+                    'metric': ['euclidean', 'manhattan', 'minkowski']
+                },
+
+                'DecisionTreeRegressor': {
+                    'criterion': ['squared_error', 'friedman_mse'],
+                    'max_depth': [None, 5, 10, 20],
+                    'min_samples_split': [2, 5, 10],
+                    'min_samples_leaf': [1, 2, 4]
+                },
+
+                'RandomForestRegressor': {
+                    'n_estimators': [100, 200],
+                    'max_depth': [None, 10, 20],
+                    'min_samples_split': [2, 5, 10],
+                    'min_samples_leaf': [1, 2, 4]
+                },
+
+                'XGBRegressor': {
+                    'n_estimators': [100, 200],
+                    'learning_rate': [0.01, 0.1, 0.2],
+                    'max_depth': [3, 5, 7],
+                    'subsample': [0.7, 0.9, 1],
+                    'colsample_bytree': [0.7, 0.9, 1]
+                },
+
+                'AdaBoostRegressor': {
+                    'n_estimators': [50, 100, 200],
+                    'learning_rate': [0.01, 0.1, 1]
+                },
+
+                'CatBoostRegressor': {
+                    'iterations': [100, 200],
+                    'learning_rate': [0.01, 0.05, 0.1],
+                    'depth': [4, 6, 8],
+                    'l2_leaf_reg': [1, 3, 5],
+                    'verbose': [0]  # Suppress output in tuning
+                },
+
+                'SVR': {
+                    'C': [0.1, 1, 10],
+                    'kernel': ['rbf', 'poly', 'linear'],
+                    'gamma': ['scale', 'auto']
+                },
+
+                'GradientBoostRegressor': {
+                    'n_estimators': [100, 200],
+                    'learning_rate': [0.01, 0.1, 0.2],
+                    'max_depth': [3, 5, 7],
+                    'subsample': [0.7, 0.9, 1]
+                }
+            }
+
             logging.info('All the models we will try .')
 
             r2_list=[]
-            model_report:dict=evaluate_model(xtrain=x_train,ytrain=y_train,xtest=x_test,ytest=y_test,models=models)
+            model_report:dict=evaluate_model(xtrain=x_train,ytrain=y_train,xtest=x_test,ytest=y_test,models=models,params=param_grid)
 
 
             logging.info('Get model report for each model.')

@@ -12,28 +12,42 @@ This project is built with:
 
 ## 🚀 Demo
 
-<img src="templates/static/demo-form.png" width="400">
-<img src="templates/static/demo-project-structure.png" width="400">
+<img src="templates/Demo.png" width="400">
 
 ---
 
 ## 📂 Project Structure
 
 ├── application.py # Flask entry point
+
 ├── artifacts/ # Trained model and preprocessor
+
 ├── catboost_info/ # CatBoost training logs
+
 ├── notebook/ # Jupyter notebooks for EDA & model development
+
 ├── src/ # Source code package
+
 │ ├── components/ # Data ingestion, transformation, model trainer
+
 │ ├── pipeline/ # Prediction pipeline classes
+
 │ ├── utils.py # Helper functions
+
 │ ├── logger.py # Logging configuration
+
 │ └── exception.py # Custom exception handling
+
 ├── templates/ # HTML frontend templates
+
 │ ├── index.html
+
 │ └── home.html
+
 ├── requirements.txt # Project dependencies
+
 ├── setup.py # Package setup
+
 └── README.md # Project documentation
 
 

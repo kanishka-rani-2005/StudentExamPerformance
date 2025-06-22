@@ -10,7 +10,7 @@ This project is built with:
 
 ---
 
-## 🚀 Demo
+## 🚀 ScreenShot
 
 <img src="templates/Demo.png" width="400">
 

@@ -5,7 +5,7 @@ A web application to predict students' **Math scores** based on their **demograp
 This project is built with:
 - Flask (backend API)
 - HTML/CSS (frontend UI)
-- Scikit-learn / CatBoost (model pipeline)
+- Scikit-learn 
 - Pandas, NumPy (data preprocessing)
 
 ---
